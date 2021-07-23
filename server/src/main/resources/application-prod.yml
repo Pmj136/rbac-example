@@ -1,0 +1,20 @@
+server:
+  port: 5901
+
+logging:
+  level:
+    root: off
+
+spring:
+  #dbcofig
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: url
+    username: username
+    password: password
+
+  #redis
+  redis:
+    host: host
+    port: 6379
+    password: password

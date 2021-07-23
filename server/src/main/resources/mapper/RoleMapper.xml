@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmj.api.mapper.RoleMapper">
+    <select id="getList" resultType="Role">
+        select tr.id, tr.name, tr.create_id, tr.create_at, tu.account
+        from t_role tr
+                 left join t_user tu on tu.id = tr.create_id
+        order by tr.create_at
+    </select>
+</mapper>

@@ -1,0 +1,23 @@
+.app-layout {
+    display: flex;
+    height: 100%;
+    min-height: 100%;
+}
+
+.layout-views {
+    flex: 1;
+    overflow: hidden auto;
+}
+
+.layout-header {
+    padding: 0 16px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.3);
+}

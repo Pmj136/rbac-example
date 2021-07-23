@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmj.api.mapper.RolePermMapper">
+    <select id="getPermByRoleId" resultType="Perm">
+        SELECT tp.*
+        FROM t_role_perm trp
+                 LEFT JOIN t_perm tp ON tp.id = trp.perm_id
+        WHERE trp.role_id = #{roleId}
+        ORDER BY tp.sort
+    </select>
+</mapper>

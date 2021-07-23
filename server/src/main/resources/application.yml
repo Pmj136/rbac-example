@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+
+
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath:mapper/*
+  type-aliases-package: com/pmj/api/entity
+  global-config:
+    banner: false
+  configuration:
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+
+#http://sa-token.dev33.cn/doc/index.html#/use/config?id=%e6%89%80%e6%9c%89%e5%8f%af%e9%85%8d%e7%bd%ae%e9%a1%b9
+sa-token:
+  token-name: token
+  timeout: -1
+  activity-timeout: 86400
+  is-concurrent: false
+  token-style: tik

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pmj.api.mapper.PermMapper">
+
+    <select id="selectAll" resultType="Perm">
+        SELECT id,
+        id as 'key',
+        title,
+        str,
+        type,
+        parent_id,
+        sort
+        from t_perm
+        <if test="type!=null">
+            where type=#{type}
+        </if>
+        order by sort
+    </select>
+
+    <select id="selectByUserId" resultType="Perm">
+        SELECT tp.*
+        FROM t_role_perm trp
+        LEFT JOIN t_perm tp ON tp.id = trp.perm_id
+        LEFT JOIN t_user_role tur ON tur.role_id = trp.role_id
+        WHERE tur.user_id = #{userId}
+        ORDER BY tp.sort
+    </select>
+
+    <select id="selectAsSearch" resultType="Perm">
+        SELECT * from t_perm
+        WHERE title like concat('%',#{keyword},'%')
+        OR str like concat('%',#{keyword},'%')
+        <if test="type!=null">
+            AND type=#{type}
+        </if>
+    </select>
+</mapper>
